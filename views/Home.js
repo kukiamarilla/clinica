@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export default function Login() {
+export default function Home() {
   const [isLoggedIn, autenticate, logout] = useAuth();
 
   const cerrarSesion = () => {
