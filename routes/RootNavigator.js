@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from "../views/Login";
 import Home from "../views/Home";
+import Paciente from "../views/Paciente";
 import useAuth from "../hooks/useAuth";
 
 const Stack = createNativeStackNavigator();
@@ -15,7 +16,7 @@ export default function RootNavigator() {
       <Stack.Navigator screenOptions={{headerShown: false}}>
         {isLoggedIn ? 
           ( 
-            <Stack.Screen name="Home" component={Home}/>    
+            <Stack.Screen name="Paciente" component={Paciente}/>
           ) : (
             <Stack.Screen name="Login" component={Login}/> 
           )
