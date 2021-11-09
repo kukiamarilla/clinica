@@ -2,7 +2,9 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from "../views/Login";
-import Reservas from "../views/Reservas";
+// import Reservas from "../views/Reservas";
+import Home from "../views/Home";
+import Paciente from "../views/Paciente";
 import useAuth from "../hooks/useAuth";
 
 const Stack = createNativeStackNavigator();
@@ -15,7 +17,10 @@ export default function RootNavigator() {
       <Stack.Navigator screenOptions={{headerShown: false}}>
         {isLoggedIn ? 
           ( 
-            <Stack.Screen name="Reservas" component={Reservas}/>
+//  feature/reservas
+//             <Stack.Screen name="Reservas" component={Reservas}/>
+
+            <Stack.Screen name="Paciente" component={Paciente}/>
           ) : (
             <Stack.Screen name="Login" component={Login}/> 
           )
