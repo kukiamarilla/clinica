@@ -12,7 +12,7 @@ api.interceptors.response.use((response) => response, (error) => {
     if (error.response.status == 500)
       Alert.alert("Error 500", "Error interno del servidor")
     else
-      Alert.error("Error", "Error desconocido")
+      Alert.alert("Error", "Error desconocido")
   }
   throw error;
 });
