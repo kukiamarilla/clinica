@@ -47,7 +47,7 @@ export default function Login({navigation}) {
     autenticate(username, password).then(result => {
       if(!result) {
         setUsernameValid(false);
-      setPasswordValid(false);
+        setPasswordValid(false);
         Alert.alert("Inicio de Sesión", "Credenciales incorrectas.")
       }
     })
