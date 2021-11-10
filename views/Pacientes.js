@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 export default function Pacientes({ navigation }) {
     const [pacientes, setPacientes] = useState([]);
     useEffect(() => {
-        pacienteService.list().then(setPacientes);
+        pacienteService.clientes().then(setPacientes);
     }, []);
     return (
         <View style={[styles.statusBar]}>
