@@ -1,11 +1,11 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../views/Login";
-// import Reservas from "../views/Reservas";
-import Home from "../views/Home";
-import Paciente from "../views/Paciente";
+import Reservas from "../views/Reservas";
+import Pacientes from "../views/Pacientes";
 import useAuth from "../hooks/useAuth";
+import ReservasAlta from "../views/ReservasAlta";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,18 +14,17 @@ export default function RootNavigator() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        {isLoggedIn ? 
-          ( 
-//  feature/reservas
-//             <Stack.Screen name="Reservas" component={Reservas}/>
-
-            <Stack.Screen name="Paciente" component={Paciente}/>
-          ) : (
-            <Stack.Screen name="Login" component={Login}/> 
-          )
-        }
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {isLoggedIn ? (
+          <>
+            <Stack.Screen name="Reservas" component={Reservas} />
+            <Stack.Screen name="AltaReservas" component={ReservasAlta} />
+            <Stack.Screen name="Pacientes" component={Pacientes} />
+          </>
+        ) : (
+          <Stack.Screen name="Login" component={Login} />
+        )}
       </Stack.Navigator>
-    </NavigationContainer>        
-  )
+    </NavigationContainer>
+  );
 }
