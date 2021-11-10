@@ -10,7 +10,6 @@ import RadioButton from "../components/RadioButton";
 import reservaService from "../services/reservaService";
 import { Colors, Fonts } from "../styles/constants";
 import Select from "../components/Select";
-
 const styles = StyleSheet.create({
   page: {
     backgroundColor: Colors.SECONDARY_COLOR,
@@ -36,11 +35,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Reservas() {
-  const [reservas, setReservas] = useState([]);
-  useEffect(() => {
-    reservaService.list().then(setReservas);
-  }, []);
+export default function ReservasAlta() {
+  const [reservasAlta, setReservasAlta] = useState({});
+
   return (
     <View style={[styles.statusBar]}>
       <StatusBar style="light" backgroundColor={Colors.SECONDARY_COLOR} />
@@ -50,13 +47,7 @@ export default function Reservas() {
             <View>
               <Hamburger />
             </View>
-            <Text style={[styles.pageTitle]}>Reservas</Text>
-            <View>
-              <RadioButton Icon={Plus} />
-            </View>
-          </View>
-          <View style={[styles.headerBottom]}>
-            <Select options={[]} defaultText="Cliente" />
+            <Text style={[styles.pageTitle]}>Agregar Reservas</Text>
           </View>
         </View>
       </SafeAreaView>

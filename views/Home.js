@@ -8,22 +8,22 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
-  }
-})
+    alignItems: "center",
+  },
+});
 
 export default function Home() {
   const [isLoggedIn, autenticate, logout] = useAuth();
 
   const cerrarSesion = () => {
     logout();
-  }
-  
+  };
+
   return (
     <SafeAreaView style={styles.page}>
       <View>
         <Button onPress={cerrarSesion}>Cerrar Sesion</Button>
       </View>
     </SafeAreaView>
-  )
+  );
 }
