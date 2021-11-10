@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingTop: 40,
+    paddingVertical: 15,
   },
   text: {
     color: "white",

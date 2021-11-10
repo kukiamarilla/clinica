@@ -12,26 +12,11 @@ import { Colors, Fonts } from "../styles/constants";
 import Select from "../components/Select";
 import pacienteService from "../services/pacienteService";
 import CustomDatePicker from "../components/CustomDatePicker";
+import Header from "../components/Header";
 
 const styles = StyleSheet.create({
   page: {
     backgroundColor: Colors.SECONDARY_COLOR,
-  },
-  header: {
-    backgroundColor: Colors.SECONDARY_COLOR,
-    padding: 32,
-  },
-  headerTop: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  headerBottom: {
-  },
-  pageTitle: {
-    color: Colors.PRIMARY_COLOR,
-    fontSize: 32,
-    fontFamily: Fonts.BOLD,
   },
 });
 
@@ -49,44 +34,38 @@ export default function Reservas({ navigation }) {
     <View style={[styles.statusBar]}>
       <StatusBar style="light" backgroundColor={Colors.SECONDARY_COLOR} />
       <SafeAreaView style={[styles.page]}>
-        <View style={[styles.header]}>
-          <View style={[styles.headerTop]}>
-            <View>
-              <Hamburger />
-            </View>
-            <Text style={[styles.pageTitle]}>Reservas</Text>
-            <View>
-              <RadioButton
-                Icon={Plus}
-                onPress={() => navigation.navigate("AltaReservas")}
-              />
-            </View>
-          </View>
-          <View style={[styles.headerBottom]}>
-            <Select 
-              options={
-                clientes.map((cliente, idx) => ({
-                  key: idx,
-                  text: cliente.nombre + " " + cliente.apellido,
-                  value: cliente
-                }))
-              }
-              defaultText="Cliente" 
-            />
-            <Select 
-              options={
-                clientes.map((cliente, idx) => ({
-                  key: idx,
-                  text: cliente.nombre + " " + cliente.apellido,
-                  value: cliente
-                }))
-              }
-              defaultText="Fisioterapeuta" 
-            />
-            <CustomDatePicker text="Inicio"/>
-            <CustomDatePicker text="Fin"/>
-          </View>
-        </View>
+        <Header
+          title="Reservas"
+          actionButtonIcon={Plus}
+          onPressActionButton={() =>
+            navigation.navigate("AltaReservas")
+          }
+          showActionButton
+          showMenu
+        >
+          <Select 
+            options={
+              clientes.map((cliente, idx) => ({
+                key: idx,
+                text: cliente.nombre + " " + cliente.apellido,
+                value: cliente
+              }))
+            }
+            defaultText="Cliente" 
+          />
+          <Select 
+            options={
+              clientes.map((cliente, idx) => ({
+                key: idx,
+                text: cliente.nombre + " " + cliente.apellido,
+                value: cliente
+              }))
+            }
+            defaultText="Fisioterapeuta" 
+          />
+          <CustomDatePicker text="Inicio"/>
+          <CustomDatePicker text="Fin"/>
+        </Header>
       </SafeAreaView>
     </View>
   );

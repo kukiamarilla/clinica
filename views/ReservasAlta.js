@@ -10,6 +10,7 @@ import RadioButton from "../components/RadioButton";
 import reservaService from "../services/reservaService";
 import { Colors, Fonts } from "../styles/constants";
 import Select from "../components/Select";
+import Header from "../components/Header";
 const styles = StyleSheet.create({
   page: {
     backgroundColor: Colors.SECONDARY_COLOR,
@@ -42,14 +43,10 @@ export default function ReservasAlta() {
     <View style={[styles.statusBar]}>
       <StatusBar style="light" backgroundColor={Colors.SECONDARY_COLOR} />
       <SafeAreaView style={[styles.page]}>
-        <View style={[styles.header]}>
-          <View style={[styles.headerTop]}>
-            <View>
-              <Hamburger />
-            </View>
-            <Text style={[styles.pageTitle]}>Agregar Reservas</Text>
-          </View>
-        </View>
+        <Header
+          title="Agregar Reserva"
+          showMenu
+        />
       </SafeAreaView>
     </View>
   );
