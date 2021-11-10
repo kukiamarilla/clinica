@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../views/Login";
 import Reservas from "../views/Reservas";
+import Pacientes from "../views/Pacientes";
 import useAuth from "../hooks/useAuth";
 import ReservasAlta from "../views/ReservasAlta";
 
