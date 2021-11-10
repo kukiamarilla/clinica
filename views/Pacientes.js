@@ -10,6 +10,8 @@ import Plus from "../components/icons/Plus";
 import Hamburger from "../components/icons/Hamburger";
 import RadioButton from "../components/RadioButton";
 import Select from "../components/Select";
+import CustomDatetimePicker from "../components/CustomDatetimePicker";
+import { Searchbar } from 'react-native-paper';
 
 const styles = StyleSheet.create({
     statusBar: {
@@ -36,10 +38,11 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function Pacientes({ navigation }) {
-    const [pacientes, setPacientes] = useState([]);
+export default function Clientes({ navigation }) {
+    const [clientes, setClientes] = useState([]);
+    const onChangeSearch = query => setClientes(query);
     useEffect(() => {
-        pacienteService.clientes().then(setPacientes);
+        pacienteService.clientes().then(setClientes);
     }, []);
     return (
         <View style={[styles.statusBar]}>
@@ -59,7 +62,28 @@ export default function Pacientes({ navigation }) {
                         </View>
                     </View>
                     <View style={[styles.headerBottom]}>
-                        <Select options={[]} defaultText="Nombre" />
+                        <Searchbar
+                            placeholder="Nombre"
+                            onChangeText={onChangeSearch}
+                            value={clientes}
+                        />
+                    </View>
+                        <View style={[styles.headerBottom]}>
+                        <Searchbar
+                            placeholder="Apellido"
+                            onChangeText={onChangeSearch}
+                            value={clientes}
+                        />
+                        {/*<Select*/}
+                        {/*    options={*/}
+                        {/*    clientes.map((cliente, idx) => ({*/}
+                        {/*        key: idx,*/}
+                        {/*        text: cliente.nombre,*/}
+                        {/*        value: cliente*/}
+                        {/*    }))*/}
+                        {/*    }*/}
+                        {/*    defaultText="Nombre"*/}
+                        {/*/>*/}
                     </View>
                 </View>
             </SafeAreaView>
