@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function Paciente() {
+export default function Pacientes() {
     const [pacientes, setPaciente] = useState([]);
     useEffect(() => {
         pacienteService.list().then(setPaciente);
