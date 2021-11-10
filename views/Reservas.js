@@ -11,7 +11,7 @@ import reservaService from "../services/reservaService";
 import { Colors, Fonts } from "../styles/constants";
 import Select from "../components/Select";
 import pacienteService from "../services/pacienteService";
-import CustomDatetimePicker from "../components/CustomDatetimePicker";
+import CustomDatePicker from "../components/CustomDatePicker";
 
 const styles = StyleSheet.create({
   page: {
@@ -83,6 +83,8 @@ export default function Reservas({ navigation }) {
               }
               defaultText="Fisioterapeuta" 
             />
+            <CustomDatePicker text="Inicio"/>
+            <CustomDatePicker text="Fin"/>
           </View>
         </View>
       </SafeAreaView>
