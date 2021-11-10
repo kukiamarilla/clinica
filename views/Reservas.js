@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Reservas() {
+export default function Reservas({ navigation }) {
   const [reservas, setReservas] = useState([]);
   useEffect(() => {
     reservaService.list().then(setReservas);
@@ -52,7 +52,10 @@ export default function Reservas() {
             </View>
             <Text style={[styles.pageTitle]}>Reservas</Text>
             <View>
-              <RadioButton Icon={Plus} />
+              <RadioButton
+                Icon={Plus}
+                onPress={() => navigation.navigate("AltaReservas")}
+              />
             </View>
           </View>
           <View style={[styles.headerBottom]}>
