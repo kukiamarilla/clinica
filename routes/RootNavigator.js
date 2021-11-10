@@ -18,6 +18,7 @@ export default function RootNavigator() {
           <>
             <Stack.Screen name="Reservas" component={Reservas} />
             <Stack.Screen name="AltaReservas" component={ReservasAlta} />
+            <Stack.Screen name="Pacientes" component={Pacientes} />
           </>
         ) : (
           <Stack.Screen name="Login" component={Login} />
