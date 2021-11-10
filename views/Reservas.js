@@ -84,6 +84,7 @@ export default function Reservas({ navigation }) {
               defaultText="Fisioterapeuta" 
             />
             <CustomDatePicker text="Inicio"/>
+            <CustomDatePicker text="Fin"/>
           </View>
         </View>
       </SafeAreaView>
