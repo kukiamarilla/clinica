@@ -23,9 +23,3 @@ export default {
     return api.get(encodeURI(`/stock-nutrinatalia/reserva?ejemplo=${JSON.stringify(params)}`)).then(response => response.data.lista)
   },
 }
-
-let filtros = {
-  desde: new Date(),
-}
-
-reservaService.list(filtros).then(reservas => {})
