@@ -40,7 +40,7 @@ export default function Reservas({ navigation }) {
   const [clientes, setClientes] = useState([]);
 
   useEffect(() => {
-    reservaService.list().then(setReservas);
+    reservaService.list({}).then(setReservas);
   }, []);
   useEffect(() => {
     pacienteService.clientes().then(setClientes);
