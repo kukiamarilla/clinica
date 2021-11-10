@@ -6,7 +6,7 @@ let api = axios.create({
   baseURL: Config.API_URL,
   timeout: 5000,
 })
-api.headers.common['Content-Type'] = 'application/json';
+api.defaults.headers.common['Content-Type'] = 'application/json';
 api.interceptors.response.use((response) => response, (error) => {
   if (error.response) {
     if (error.response.status == 500)
