@@ -10,6 +10,8 @@ import RadioButton from "../components/RadioButton";
 import reservaService from "../services/reservaService";
 import { Colors, Fonts } from "../styles/constants";
 import Select from "../components/Select";
+import pacienteService from "../services/pacienteService";
+import CustomDatetimePicker from "../components/CustomDatetimePicker";
 
 const styles = StyleSheet.create({
   page: {
@@ -25,9 +27,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   headerBottom: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
   },
   pageTitle: {
     color: Colors.PRIMARY_COLOR,
@@ -38,8 +37,13 @@ const styles = StyleSheet.create({
 
 export default function Reservas({ navigation }) {
   const [reservas, setReservas] = useState([]);
+  const [clientes, setClientes] = useState([]);
+
   useEffect(() => {
     reservaService.list().then(setReservas);
+  }, []);
+  useEffect(() => {
+    pacienteService.clientes().then(setClientes);
   }, []);
   return (
     <View style={[styles.statusBar]}>
@@ -59,7 +63,26 @@ export default function Reservas({ navigation }) {
             </View>
           </View>
           <View style={[styles.headerBottom]}>
-            <Select options={[]} defaultText="Cliente" />
+            <Select 
+              options={
+                clientes.map((cliente, idx) => ({
+                  key: idx,
+                  text: cliente.nombre + " " + cliente.apellido,
+                  value: cliente
+                }))
+              }
+              defaultText="Cliente" 
+            />
+            <Select 
+              options={
+                clientes.map((cliente, idx) => ({
+                  key: idx,
+                  text: cliente.nombre + " " + cliente.apellido,
+                  value: cliente
+                }))
+              }
+              defaultText="Fisioterapeuta" 
+            />
           </View>
         </View>
       </SafeAreaView>

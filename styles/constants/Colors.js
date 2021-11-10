@@ -4,5 +4,6 @@ export default {
   WHITE: "#fff",
   BLACK: "#000",
   WHITE_OPACITY: "rgba(255, 255, 255, 0.2)",
-  DANGER: "#ee4d4d"
+  DANGER: "#ee4d4d",
+  GRAY_4: "#828282"
 };
