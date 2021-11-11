@@ -47,10 +47,11 @@ export default function Fichas({ navigation }) {
             <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
             <View style={styles.page}>
                 <Header
-                    title="Ficha"
+                    title="Fichas"
                     showMenu
                     showActionButton
                     actionButtonIcon={Plus}
+                    onPress={navigation.navigate("AgregarFichas")}
                 >
                     <Select
                         options={clientes.map((cliente) => ({
@@ -58,7 +59,7 @@ export default function Fichas({ navigation }) {
                             text: `${cliente.nombre} ${cliente.apellido}`,
                             value: cliente,
                         }))}
-                        defaultText="Cliente"
+                        defaultText="Paciente"
                     />
                     <Select
                         options={clientes.map((cliente) => ({
@@ -66,7 +67,7 @@ export default function Fichas({ navigation }) {
                             text: `${cliente.nombre} ${cliente.apellido}`,
                             value: cliente,
                         }))}
-                        defaultText="Empleado"
+                        defaultText="Fisioterapeuta"
                     />
                     <CustomDatePicker text="Inicio" />
                     <CustomDatePicker text="Fin" />
