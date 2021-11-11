@@ -15,10 +15,10 @@ export default {
       }
     }
     if (desde) {
-      params.fechaDesdeCadena = `${date.getYear()}${date.getMonth()+1}${date.getDate()}`;
+      params.fechaDesdeCadena = `${date.getYear()}${(date.getMonth()+1).toString().padStart(2, "0")}${(date.getDate()).toString().padStart(2, "0")}`;
     }
     if (hasta) {
-      params.fechaHastaCadena = `${date.getYear()}${date.getMonth()+1}${date.getDate()}`;
+      params.fechaHastaCadena = `${date.getYear()}${(date.getMonth()+1).toString().padStart(2, "0")}${(date.getDate()).toString().padStart(2, "0")}`;
     }
     return api.get(encodeURI(`/stock-nutrinatalia/reserva?ejemplo=${JSON.stringify(params)}`)).then(response => response.data.lista)
   },
