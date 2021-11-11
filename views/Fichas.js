@@ -67,10 +67,11 @@ export default function Fichas({ navigation }) {
             <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
             <View style={styles.page}>
                 <Header
-                    title="Ficha"
+                    title="Fichas"
                     showMenu
                     showActionButton
                     actionButtonIcon={Plus}
+                    onPress={navigation.navigate("AgregarFichas")}
                 >
                     <View style={{ flexDirection: "row" }}>
                         <View style={{ flex: 1, paddingRight: 8 }}>
