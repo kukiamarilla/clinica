@@ -68,11 +68,13 @@ export default function Select({ options, onSelect, defaultText, style }) {
             </TouchableOpacity>
             {options.map(option => (
               <TouchableOpacity onPress={() => {
-                setSelected(option);
-                setShowOptions(false);
-                if(onSelect)
-                  onSelect(option.value);
-              }}
+                  setSelected(option);
+                  setShowOptions(false);
+                  if(onSelect)
+                    onSelect(option.value);
+                  }
+                }
+                key={option.key}
               >
                 <Text style={[styles.dropdownText, selected && selected.key == option.key ? styles.selected : null]}>{option.text}</Text>
               </TouchableOpacity>

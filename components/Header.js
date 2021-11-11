@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: Colors.SECONDARY_COLOR,
     padding: 32,
+    zIndex: 1,
   },
   headerTop: {
     flexDirection: "row",
