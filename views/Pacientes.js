@@ -49,10 +49,10 @@ export default function Pacientes({ navigation }) {
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
       <View style={styles.page}>
         <Header title="Pacientes" showMenu showActionButton actionButtonIcon={Plus}>
-          <View style={{flexDirection: "row", width: "100%"}}>
+          <View style={{flexDirection: "row", width: "100%", marginTop:20}}>
             <BuscadorTexto placeholder="Nombre" onChange={setNombre}></BuscadorTexto>
             <BuscadorTexto placeholder="Apellido" onChange={setApellido}></BuscadorTexto>
-            </View>
+          </View>
         </Header>
         <ScrollView style={styles.body}>
           {

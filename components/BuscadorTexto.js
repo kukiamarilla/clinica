@@ -10,7 +10,9 @@ const styles = StyleSheet.create({
       borderBottomWidth: 1,
       color: Colors.WHITE, 
       fontFamily: Fonts.REGULAR,
-      flex: 1
+      flex: 1,
+      marginHorizontal: 8,
+      paddingVertical: 16,
     }
   }
 )
@@ -19,7 +21,7 @@ export default function BuscadorTexto({onChange, placeholder}) {
 
   return(
       <TextInput
-        styles = {styles.textInput}
+        style={styles.textInput}
         placeholderTextColor={Colors.WHITE}
         onBlur={onChange}
         placeholder={placeholder}
