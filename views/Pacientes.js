@@ -40,8 +40,12 @@ export default function Pacientes({ navigation }) {
 
 
   useEffect(() => {
-    pacienteService.clientes().then(setPacientes);
-  }, []);
+    const filtros = {
+      nombre,
+      apellido
+    }
+    pacienteService.clientes(filtros).then(setPacientes);
+  }, [nombre, apellido]);
   
 
   return (

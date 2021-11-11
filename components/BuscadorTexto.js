@@ -23,7 +23,7 @@ export default function BuscadorTexto({onChange, placeholder}) {
       <TextInput
         style={styles.textInput}
         placeholderTextColor={Colors.WHITE}
-        onBlur={onChange}
+        onChangeText={onChange}
         placeholder={placeholder}
       />
   )
