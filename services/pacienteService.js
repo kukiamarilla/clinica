@@ -11,6 +11,6 @@ export default {
     if (apellido) {
       params.apellido = apellido
     }
-    return api.get(encodeURI(`/stock-nutrinatalia/persona?like=S&ejemplo=${JSON.stringify(params)}`)).then(response => response.data.lista);
+    return api.get(encodeURI(`/stock-nutrinatalia/persona?like=S&ejemplo=${JSON.stringify(params)}`)).then(response => response.data.lista.filter(p => !p.usuarioLogin));
   }
 }

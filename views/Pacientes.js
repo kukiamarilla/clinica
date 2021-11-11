@@ -60,8 +60,8 @@ export default function Pacientes({ navigation }) {
         </Header>
         <ScrollView style={styles.body}>
           {
-            pacientes.map((paciente) => 
-              <Paciente key={paciente.id} paciente={paciente}/>)
+            pacientes.map((paciente, idx) => 
+              <Paciente key={idx} paciente={paciente}/>)
           }
         </ScrollView>
       </View>
