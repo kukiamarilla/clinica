@@ -28,19 +28,22 @@ export default function Reserva({ reserva }) {
         <Text>ID: {reserva.idReserva}</Text>
       </View>
       <View style={{ flex: 3 }}>
-        <Text>Fecha: {reserva.fecha}</Text>
-        <Text style={[styles.marginTop, styles.text]}>
-          Inicio: {reserva.horaInicio}
+        <Text>
+          Cliente: {reserva.idCliente.nombre + " " + reserva.idCliente.apellido}
         </Text>
         <Text style={[styles.marginTop, styles.text]}>
-          Fin: {reserva.horaInicio}
+          Empleado:{" "}
+          {reserva.idEmpleado.nombre + " " + reserva.idEmpleado.apellido}
         </Text>
         <Text style={[styles.marginTop, styles.text]}>
-          Asistio: {reserva.flgAsistio ? "SI" : "NO"}
+          Inicio: {reserva.fecha + " " + reserva.horaInicio}
+        </Text>
+        <Text style={[styles.marginTop, styles.text]}>
+          Fin: {reserva.fecha + " " + reserva.horaInicio}
         </Text>
       </View>
       <View style={{ flex: 2 }}>
-        <Text>Obs: {reserva.observacion}</Text>
+        <Text>Asistio: {reserva.flgAsistio ? "SI" : "NO"}</Text>
       </View>
     </View>
   );
