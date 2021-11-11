@@ -4,89 +4,56 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import pacienteService from "../services/pacienteService";
-import { Colors, Fonts } from "../styles/constants";
 import Plus from "../components/icons/Plus";
 import Hamburger from "../components/icons/Hamburger";
 import RadioButton from "../components/RadioButton";
+import reservaService from "../services/reservaService";
+import { Colors, Fonts } from "../styles/constants";
 import Select from "../components/Select";
-import CustomDatetimePicker from "../components/CustomDatetimePicker";
-import { Searchbar } from 'react-native-paper';
+import pacienteService from "../services/pacienteService";
+import CustomDatePicker from "../components/CustomDatePicker";
+import Header from "../components/Header";
+import Paciente from "../components/Paciente";
+import { ScrollView } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
-    statusBar: {
-        backgroundColor: Colors.SECONDARY_COLOR,
-    },
-    header: {
-        backgroundColor: Colors.SECONDARY_COLOR,
-        padding: 32,
-    },
-    headerTop : {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-    },
-    headerBottom : {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-    },
-    pageTitle: {
-        color: Colors.PRIMARY_COLOR,
-        fontSize: 32,
-        fontFamily: Fonts.BOLD,
-    }
+  statusBar: {
+    flex: 1,
+    backgroundColor: Colors.SECONDARY_COLOR,
+  },
+  page: {
+    flex: 1,
+  },
+  body: {
+    paddingHorizontal: 8,
+    flex: 1,
+    backgroundColor: Colors.WHITE,
+  }
 });
 
-export default function Clientes({ navigation }) {
-    const [clientes, setClientes] = useState([]);
-    const onChangeSearch = query => setClientes(query);
-    useEffect(() => {
-        pacienteService.clientes().then(setClientes);
-    }, []);
-    return (
-        <View style={[styles.statusBar]}>
-            <StatusBar style="light" backgroundColor={Colors.SECONDARY_COLOR} />
-            <SafeAreaView style={[styles.page]}>
-                <View style={[styles.header]}>
-                    <View style={[styles.headerTop]}>
-                        <View>
-                            <Hamburger />
-                        </View>
-                        <Text style={[styles.pageTitle]}>Pacientes</Text>
-                        <View>
-                            <RadioButton
-                                Icon={Plus}
-                                onPress={() => navigation.navigate("AgregarPacientes")}
-                            />
-                        </View>
-                    </View>
-                    <View style={[styles.headerBottom]}>
-                        <Searchbar
-                            placeholder="Nombre"
-                            onChangeText={onChangeSearch}
-                            value={clientes}
-                        />
-                    </View>
-                        <View style={[styles.headerBottom]}>
-                        <Searchbar
-                            placeholder="Apellido"
-                            onChangeText={onChangeSearch}
-                            value={clientes}
-                        />
-                        {/*<Select*/}
-                        {/*    options={*/}
-                        {/*    clientes.map((cliente, idx) => ({*/}
-                        {/*        key: idx,*/}
-                        {/*        text: cliente.nombre,*/}
-                        {/*        value: cliente*/}
-                        {/*    }))*/}
-                        {/*    }*/}
-                        {/*    defaultText="Nombre"*/}
-                        {/*/>*/}
-                    </View>
-                </View>
-            </SafeAreaView>
-        </View>
-    );
+export default function Pacientes({ navigation }) {
+  
+  const [pacientes, setPacientes] = useState([])
+
+  useEffect(() => {
+    pacienteService.clientes().then(setPacientes);
+  }, []);
+
+
+  return (
+    <SafeAreaView style={styles.statusBar}>
+      <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
+      <View style={styles.page}>
+        <Header title="Pacientes" showMenu showActionButton actionButtonIcon={Plus}>
+        </Header>
+        <ScrollView style={styles.body}>
+          {
+
+            pacientes.map((paciente) => 
+              <Paciente key={paciente.id} paciente={paciente}/>)
+          }
+        </ScrollView>
+      </View>
+    </SafeAreaView>
+  );
 }
