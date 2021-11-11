@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     borderBottomColor: Colors.GRAY_4,
     borderBottomWidth: 1,
     display: "flex",
-    paddingVertical: 24,
-    paddingHorizontal: 40,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
     flexDirection: "row",
   },
   text: {
@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
 export default function Reserva({ reserva }) {
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, paddingHorizontal: 8 }}>
         <Text>ID: {reserva.idReserva}</Text>
       </View>
-      <View style={{ flex: 3 }}>
+      <View style={{ flex: 3, paddingHorizontal: 8 }}>
         <Text>
           Cliente: {reserva.idCliente.nombre + " " + reserva.idCliente.apellido}
         </Text>
@@ -42,7 +42,7 @@ export default function Reserva({ reserva }) {
           Fin: {reserva.fecha + " " + reserva.horaInicio}
         </Text>
       </View>
-      <View style={{ flex: 2 }}>
+      <View style={{ flex: 1, paddingHorizontal: 8 }}>
         <Text>Asistio: {reserva.flgAsistio ? "SI" : "NO"}</Text>
       </View>
     </View>

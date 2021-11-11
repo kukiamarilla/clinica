@@ -12,21 +12,23 @@ const styles = StyleSheet.create({
     color: Colors.WHITE,
     margin: 12,
     fontFamily: Fonts.BOLD,
-    fontSize: 16
+    fontSize: 16,
   },
   notValid: {
     borderColor: Colors.DANGER,
     borderWidth: 1,
-    color: Colors.DANGER
-  }
-})
+    color: Colors.DANGER,
+  },
+});
 
 export default function Input(props) {
   return (
-    <TextInput 
+    <TextInput
       style={[styles.input, !props.isValid ? styles.notValid : null]}
       placeholderTextColor={Colors.SECONDARY_COLOR}
       {...props}
+      maxLength={props.max != 0 ? props.max : 1}
+      editable
     ></TextInput>
-  )
+  );
 }

@@ -49,6 +49,7 @@ export default function Reservas({ navigation }) {
           showMenu
           showActionButton
           actionButtonIcon={Plus}
+          onPress={navigation.navigate("AltaReservas")}
         >
           <Select
             options={clientes.map((cliente) => ({
@@ -71,7 +72,6 @@ export default function Reservas({ navigation }) {
         </Header>
         <ScrollView style={styles.body}>
           {reservas.map((item) => {
-            console.log(item);
             return <Reserva key={item.id} reserva={item} />;
           })}
         </ScrollView>
