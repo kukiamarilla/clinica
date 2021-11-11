@@ -15,9 +15,17 @@ import CustomDatePicker from "../components/CustomDatePicker";
 import Header from "../components/Header";
 
 const styles = StyleSheet.create({
-  page: {
+  statusBar: {
+    flex: 1,
     backgroundColor: Colors.SECONDARY_COLOR,
   },
+  page: {
+    flex: 1,
+  },
+  body: {
+    flex: 1,
+    backgroundColor: Colors.WHITE,
+  }
 });
 
 export default function Reservas({ navigation }) {
@@ -31,42 +39,17 @@ export default function Reservas({ navigation }) {
     pacienteService.clientes().then(setClientes);
   }, []);
   return (
-    <View style={[styles.statusBar]}>
-      <StatusBar style="light" backgroundColor={Colors.SECONDARY_COLOR} />
-      <SafeAreaView style={[styles.page]}>
-        <Header
-          title="Reservas"
-          actionButtonIcon={Plus}
-          onPressActionButton={() =>
-            navigation.navigate("AltaReservas")
-          }
-          showActionButton
-          showMenu
-        >
-          <Select 
-            options={
-              clientes.map((cliente, idx) => ({
-                key: idx,
-                text: cliente.nombre + " " + cliente.apellido,
-                value: cliente
-              }))
-            }
-            defaultText="Cliente" 
-          />
-          <Select 
-            options={
-              clientes.map((cliente, idx) => ({
-                key: idx,
-                text: cliente.nombre + " " + cliente.apellido,
-                value: cliente
-              }))
-            }
-            defaultText="Fisioterapeuta" 
-          />
-          <CustomDatePicker text="Inicio"/>
-          <CustomDatePicker text="Fin"/>
+    <SafeAreaView style={styles.statusBar}>
+      <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
+      <View style={styles.page}>
+        <Header title="Reservas" showMenu showActionButton actionButtonIcon={Plus}>
+          <Select options={clientes.map(cliente => ({key: cliente.id, text: `${cliente.nombre} ${cliente.apellido}`, value: cliente}))} defaultText="Cliente" />
+          <Select options={clientes.map(cliente => ({key: cliente.id, text: `${cliente.nombre} ${cliente.apellido}`, value: cliente}))} defaultText="Empleado" />
+          <CustomDatePicker text="Inicio" />
+          <CustomDatePicker text="Fin" />
         </Header>
-      </SafeAreaView>
-    </View>
+        <View style={styles.body}></View>
+      </View>
+    </SafeAreaView>
   );
 }
