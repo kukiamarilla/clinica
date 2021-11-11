@@ -84,6 +84,7 @@ export default function CustomDatePicker({text, style, onSelect}) {
   const hideModal = () => {
     setShow(false);
     setPicked(true);
+    console.log(date);
     if(onSelect) onSelect(date);
   };
 
@@ -109,21 +110,23 @@ export default function CustomDatePicker({text, style, onSelect}) {
       }
       { Platform.OS == "ios" && <Modal
         presentationStyle="overFullScreen"
-        transparent
+        
         visible={show}
         style={{
           flexDirection: "column",
           justifyContent: "center",
+          alignItems: "center",
           flex: 1,
         }}
       >
         <View
         style={{
-          position: "absolute",
-          bottom: 40,
+          alignSelf: "center",
+          justifyContent: "center",
+          flexDirection: "column",
           width: "100%",
           backgroundColor: Colors.WHITE,
-          padding: 24
+          padding: 24,
         }}>
           <DateTimePicker
             testID="dateTimePicker"

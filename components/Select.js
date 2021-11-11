@@ -62,6 +62,7 @@ export default function Select({ options, onSelect, defaultText, style }) {
             <TouchableOpacity onPress={() => {
               setSelected(null);
               setShowOptions(false);
+              onSelect(null);
             }}
             >
               <Text style={[styles.dropdownText, !selected ? styles.selected : null]}>Todos</Text>

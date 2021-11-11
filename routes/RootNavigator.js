@@ -4,8 +4,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../views/Login";
 import Pacientes from "../views/Pacientes";
 import Fichas from "../views/Fichas";
+import Home from "../views/Home";
 import useAuth from "../hooks/useAuth";
 import ReservasAlta from "../views/ReservasAlta";
+import Reservas from "../views/Reservas";
 import AgregarPacientes from "../views/AgregarPacientes";
 
 const Stack = createNativeStackNavigator();
@@ -17,11 +19,12 @@ export default function RootNavigator() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {isLoggedIn ? (
-          <>
-              <Stack.Screen name="Fichas" component={Fichas} />
-              <Stack.Screen name="Reservas" component={Reservas} />
-              <Stack.Screen name="AltaReservas" component={ReservasAlta} />
-              <Stack.Screen name="Pacientes" component={Pacientes} />
+          <>  
+            <Stack.Screen name="Reservas" component={Reservas} />
+            <Stack.Screen name="Pacientes" component={Pacientes} />
+            <Stack.Screen name="Fichas" component={Fichas} />
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="AltaReservas" component={ReservasAlta} />
           </>
         ) : (
           <Stack.Screen name="Login" component={Login} />

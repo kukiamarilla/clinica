@@ -14,6 +14,7 @@ import pacienteService from "../services/pacienteService";
 import CustomDatePicker from "../components/CustomDatePicker";
 import Header from "../components/Header";
 import Reserva from "../components/Reserva";
+import useAuth from "../hooks/useAuth";
 
 const styles = StyleSheet.create({
   statusBar: {
@@ -33,12 +34,22 @@ const styles = StyleSheet.create({
 export default function Reservas({ navigation }) {
   const [reservas, setReservas] = useState([]);
   const [clientes, setClientes] = useState([]);
+  const [empleados, setEmpleados] = useState([]);
+
+  const [cliente, setCliente] = useState(null);
+  const [empleado, setEmpleado] = useState(null);
+
+  const [isLoggedIn, authenticate, logout] = useAuth();
 
   useEffect(() => {
-    reservaService.list({}).then(setReservas);
+    console.log(cliente);
+    reservaService.list({cliente: cliente?.idPersona, empleado: empleado?.idPersona}).then(setReservas);
+  }, [cliente, empleado]);
+  useEffect(() => {
+    pacienteService.clientes({}).then(setClientes);
   }, []);
   useEffect(() => {
-    pacienteService.clientes().then(setClientes);
+    pacienteService.users().then(empleados => setEmpleados(empleados.lista));
   }, []);
   return (
     <SafeAreaView style={styles.statusBar}>
@@ -49,30 +60,33 @@ export default function Reservas({ navigation }) {
           showMenu
           showActionButton
           actionButtonIcon={Plus}
+          onActionButtonPress={() => {logout()}}
         >
           <Select
-            options={clientes.map((cliente) => ({
-              key: cliente.id,
+            options={clientes.map((cliente, idx) => ({
+              key: idx,
               text: `${cliente.nombre} ${cliente.apellido}`,
               value: cliente,
             }))}
             defaultText="Cliente"
+            onSelect={setCliente}
+
           />
           <Select
-            options={clientes.map((cliente) => ({
-              key: cliente.id,
-              text: `${cliente.nombre} ${cliente.apellido}`,
-              value: cliente,
+            options={empleados.map((empleado, idx) => ({
+              key: idx,
+              text: `${empleado.nombre} ${empleado.apellido}`,
+              value: empleado,
             }))}
             defaultText="Empleado"
+            onSelect={setEmpleado}
           />
           <CustomDatePicker text="Inicio" />
           <CustomDatePicker text="Fin" />
         </Header>
         <ScrollView style={styles.body}>
-          {reservas.map((item) => {
-            console.log(item);
-            return <Reserva key={item.id} reserva={item} />;
+          {reservas.map((item, idx) => {
+            return <Reserva key={idx} reserva={item} />;
           })}
         </ScrollView>
       </View>

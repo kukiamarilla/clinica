@@ -1,7 +1,7 @@
 import api from "./api";
 export default {
   users() {
-    return api.get(`/stock-nutrinatalia/persona?ejemplo=%7B%22soloUsuariosDelSistema%22%3Atrue%7D`).then(response => response.data);
+    return api.get(encodeURI(`/stock-nutrinatalia/persona?ejemplo={"soloUsuariosDelSistema": true}`)).then(response => response.data);
   },
   clientes({nombre, apellido}) {
     let params = {}

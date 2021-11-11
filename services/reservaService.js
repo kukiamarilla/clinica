@@ -6,7 +6,7 @@ export default {
 
     if (cliente) {
       params.idCliente = {
-        idPersona: empleado
+        idPersona: cliente
       }
     }
     if (empleado) {
