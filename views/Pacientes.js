@@ -15,6 +15,7 @@ import CustomDatePicker from "../components/CustomDatePicker";
 import Header from "../components/Header";
 import Paciente from "../components/Paciente";
 import { ScrollView } from "react-native-gesture-handler";
+import BuscadorTexto from "../components/BuscadorTexto";
 
 const styles = StyleSheet.create({
   statusBar: {
@@ -34,21 +35,27 @@ const styles = StyleSheet.create({
 export default function Pacientes({ navigation }) {
   
   const [pacientes, setPacientes] = useState([])
+  const [nombre, setNombre] = useState("")
+  const [apellido, setApellido] = useState("")
+
 
   useEffect(() => {
     pacienteService.clientes().then(setPacientes);
   }, []);
-
+  
 
   return (
     <SafeAreaView style={styles.statusBar}>
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
       <View style={styles.page}>
         <Header title="Pacientes" showMenu showActionButton actionButtonIcon={Plus}>
+          <View style={{flexDirection: "row", width: "100%"}}>
+            <BuscadorTexto placeholder="Nombre" onChange={setNombre}></BuscadorTexto>
+            <BuscadorTexto placeholder="Apellido" onChange={setApellido}></BuscadorTexto>
+            </View>
         </Header>
         <ScrollView style={styles.body}>
           {
-
             pacientes.map((paciente) => 
               <Paciente key={paciente.id} paciente={paciente}/>)
           }
