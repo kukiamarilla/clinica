@@ -10,6 +10,8 @@ import {
 } from '@expo-google-fonts/montserrat';
 import { Provider } from 'react-redux';
 import store from './store';
+import usePopulate from './hooks/usePopulate';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
   
@@ -18,7 +20,7 @@ export default function App() {
     Montserrat_700Bold,
     Montserrat_900Black
   });
-
+  usePopulate();
   return (
     <>
       {fontsLoaded ? ( 

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "codigo": "PROD1",
+    "nombre": "Xiaomi Note 8 pro",
+    "precioVenta": 1800000,
+    "existencia": 10
+  },
+  {
+    "id": 2,
+    "codigo": "PROD2",
+    "nombre": "Monitor Samnung XLAS12 24''",
+    "precioVenta": 2100000,
+    "existencia": 10
+  },
+  {
+    "id": 3,
+    "codigo": "PROD3",
+    "nombre": "Mouse HyperX Pulsefire",
+    "precioVenta": 350000,
+    "existencia": 10
+  },
+  {
+    "id": 4,
+    "codigo": "PROD4",
+    "nombre": "Pendrive Sandisk Mini 32GB",
+    "precioVenta": 90000,
+    "existencia": 10
+  },
+  {
+    "id": 5,
+    "codigo": "PROD5",
+    "nombre": "Pendrive Kingston 64GB",
+    "precioVenta": 130000,
+    "existencia": 10
+  },
+  {
+    "id": 6,
+    "codigo": "PROD6",
+    "nombre": "Pendrive Kingston 64GB",
+    "precioVenta": 130000,
+    "existencia": 10
+  }
+]

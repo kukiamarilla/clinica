@@ -16,17 +16,10 @@ export default function RootNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {isLoggedIn ? (
-          <>
-            <Stack.Screen name="Pacientes" component={Pacientes} />
-            <Stack.Screen name="AgregarPacientes" component={AgregarPacientes} />
-            <Stack.Screen name="Reservas" component={Reservas} />
-            <Stack.Screen name="AltaReservas" component={ReservasAlta} />
-
-          </>
-        ) : (
-          <Stack.Screen name="Login" component={Login} />
-        )}
+          <Stack.Screen name="Pacientes" component={Pacientes} />
+          <Stack.Screen name="AgregarPacientes" component={AgregarPacientes} />
+          <Stack.Screen name="Reservas" component={Reservas} />
+          <Stack.Screen name="AltaReservas" component={ReservasAlta} />
       </Stack.Navigator>
     </NavigationContainer>
   );
