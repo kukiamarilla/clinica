@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity, TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { Colors, Fonts } from "../styles/constants";
-import Caret from "./icons/Caret";
+import { Colors, Fonts } from "../../styles/constants";
+import Caret from "../icons/Caret";
 
 const styles = StyleSheet.create({
   select: {

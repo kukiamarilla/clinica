@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Colors } from "../styles/constants";
+import { Colors } from "../../styles/constants";
 
 const styles = StyleSheet.create({
   button: {

@@ -1,7 +1,7 @@
 import React, { Children } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Colors, Fonts } from "../styles/constants";
-import Hamburger from "./icons/Hamburger";
+import { Colors, Fonts } from "../../styles/constants";
+import Hamburger from "../icons/Hamburger";
 import RadioButton from "./RadioButton";
 
 const styles = StyleSheet.create({

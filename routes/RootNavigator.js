@@ -1,12 +1,10 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Login from "../views/Login";
-import Pacientes from "../views/Pacientes";
-import Reservas from "../views/Reservas";
 import useAuth from "../hooks/useAuth";
-import ReservasAlta from "../views/ReservasAlta";
-import AgregarPacientes from "../views/AgregarPacientes";
+import Clientes from "../views/Clientes";
+import Productos from "../views/Productos";
+import Ventas from "../views/Ventas";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,11 +13,10 @@ export default function RootNavigator() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Pacientes" component={Pacientes} />
-          <Stack.Screen name="AgregarPacientes" component={AgregarPacientes} />
-          <Stack.Screen name="Reservas" component={Reservas} />
-          <Stack.Screen name="AltaReservas" component={ReservasAlta} />
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Ventas">
+          <Stack.Screen name="Ventas" component={Ventas} />
+          <Stack.Screen name="Productos" component={Productos} />
+          <Stack.Screen name="Clientes" component={Clientes} />
       </Stack.Navigator>
     </NavigationContainer>
   );

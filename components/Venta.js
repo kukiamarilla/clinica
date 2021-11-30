@@ -21,20 +21,27 @@ const styles = StyleSheet.create({
 
 })
 
-export default function Paciente({paciente}) {
+const formatDate = (date) => {
+  const d = new Date(date);
+  const month = `0${d.getMonth() + 1}`.slice(-2);
+  const day = `0${d.getDate()}`.slice(-2);
+  const year = d.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+export default function Venta({venta}) {
   return(
     <View style={styles.container}>
       <View style={{flex:1, paddingHorizontal: 8}}>
-        <Text>ID: {paciente.idPersona}</Text>
+        <Text>ID: {venta.id}</Text>
       </View>
       <View style={{flex:4, paddingHorizontal: 8}}>
-        <Text style={styles.text}>Nombre: {paciente.nombre}</Text>
-        <Text style={[styles.marginTop, styles.text]}>Apellido: {paciente.apellido}</Text>
-        <Text style={[styles.marginTop, styles.text]}>Email: {paciente.email}</Text>
-        <Text style={[styles.marginTop, styles.text]}>Cédula: {paciente.cedula}</Text>
+        <Text style={styles.text}>Factura: {venta.prefijoFactura + venta.nroFactura}</Text>
+        <Text style={[styles.marginTop, styles.text]}>Fecha: {formatDate(venta.fecha)}</Text>
+        <Text style={[styles.marginTop, styles.text]}>Cliente: {venta.cliente.nombre}</Text>
       </View>
       <View style={{flex:2, paddingHorizontal: 8}}>
-        <Text style={styles.text}>Tipo: {paciente.usuarioLogin ? "Empleado" : "Cliente"}</Text>
+        <Text style={[styles.marginTop, styles.text]}>Total: {venta.total}</Text>
       </View>
     </View>
   )

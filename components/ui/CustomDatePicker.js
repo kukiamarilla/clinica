@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Modal, Platform, StyleSheet, Text, View } from "react-native";
-import Caret from "./icons/Caret";
+import Caret from "../icons/Caret";
 import { TouchableOpacity, TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { Fonts } from "../styles/constants";
+import { Fonts } from "../../styles/constants";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import Button from "./Button";
 
