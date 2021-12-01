@@ -19,5 +19,12 @@ export default {
     clientes.splice(index, 1)
     AsyncStorage.setItem("clientes", JSON.stringify(clientes))
     return clientes
+  },
+  async update(cliente) {
+    const clientes = await this.list()
+    const index = clientes.findIndex(c => c.id === cliente.id)
+    clientes[index] = cliente
+    AsyncStorage.setItem("clientes", JSON.stringify(clientes))
+    return clientes
   }
 }

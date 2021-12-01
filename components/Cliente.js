@@ -1,6 +1,8 @@
-import React from "react";
+import { NavigationContext } from "@react-navigation/native";
+import React, { useContext } from "react";
 import { StyleSheet, Text, Touchable, TouchableOpacity, View } from "react-native";
 import { Colors, Fonts } from "../styles/constants";
+import Pencil from "./icons/Pencil";
 import Trash from "./icons/Trash";
 
 const styles = StyleSheet.create({
@@ -36,6 +38,7 @@ const styles = StyleSheet.create({
 })
 
 export default function Cliente({cliente, onDelete}) {
+  const navigation = useContext(NavigationContext)
   return(
     <View style={styles.container}>
       <View style={styles.info}>
@@ -53,6 +56,9 @@ export default function Cliente({cliente, onDelete}) {
       <View style={styles.acciones}>
         <TouchableOpacity style={[styles.accion]} onPress={onDelete}>
           <Trash />
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.accion]} onPress={() => navigation.navigate("Modificar Cliente", {cliente})}>
+          <Pencil />
         </TouchableOpacity>
       </View>
     </View>
