@@ -9,7 +9,6 @@ import Header from "../components/ui/Header";
 import clienteService from "../services/clienteService";
 import Cliente from "../components/Cliente";
 import { ScrollView } from "react-native-gesture-handler";
-import productoService from "../services/productoService";
 import { useFocusEffect } from "@react-navigation/native";
 
 const styles = StyleSheet.create({
@@ -34,6 +33,13 @@ export default function Clientes({ navigation }) {
       setClientes(clientes);
     });
   })
+
+  const deleteCliente = (cliente) => {
+    clienteService.delete(cliente).then(cliente => {
+      setClientes(clientes);
+    });
+  }
+
   return (
     <SafeAreaView style={styles.statusBar}>
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
@@ -41,7 +47,7 @@ export default function Clientes({ navigation }) {
         <Header title="Clientes" showMenu showActionButton actionButtonIcon={Plus} onPressActionButton={() => navigation.navigate("Agregar Cliente")}>
         </Header>
         <ScrollView style={styles.body}>
-          {clientes.map((cliente) => (<Cliente cliente={cliente} key={cliente.id}/>))}
+          {clientes.map((cliente) => (<Cliente cliente={cliente} key={cliente.id} onDelete={() => deleteCliente(cliente)} />))}
         </ScrollView>
       </View>
     </SafeAreaView>
