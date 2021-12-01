@@ -6,6 +6,7 @@ import Productos from "../views/Productos";
 import Ventas from "../views/Ventas";
 import AgregarCliente from "../views/AgregarCliente";
 import AgregarProducto from "../views/AgregarProducto";
+import DetalleVenta from "../views/DetalleVenta";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function RootNavigator() {
           <Stack.Screen name="Clientes" component={Clientes} />
           <Stack.Screen name="Agregar Cliente" component={AgregarCliente} />
           <Stack.Screen name="Agregar Producto" component={AgregarProducto} />
+          <Stack.Screen name="Detalle Venta" component={DetalleVenta} />
       </Stack.Navigator>
     </NavigationContainer>
   );

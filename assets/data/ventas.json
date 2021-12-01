@@ -9,21 +9,27 @@
       "ruc": "4231233-1",
       "email": "jhony@mail.com"
     },
-    "total": 4650000,
+    "total": 3900000,
     "detalle": [
       {
-        "id": 1,
-        "codigo": "PROD1",
-        "nombre": "Xiaomi Note 8 pro",
-        "precioVenta": 1800000,
-        "existencia": 10
+        "producto": {
+          "id": 1,
+          "codigo": "PROD1",
+          "nombre": "Xiaomi Note 8 pro",
+          "precioVenta": 1800000,
+          "existencia": 10
+        },
+        "cantidad": 1
       },
       {
-        "id": 2,
-        "codigo": "PROD2",
-        "nombre": "Monitor Samnung XLAS12 24''",
-        "precioVenta": 2100000,
-        "existencia": 10
+        "producto": {
+          "id": 2,
+          "codigo": "PROD2",
+          "nombre": "Monitor Samnung XLAS12 24''",
+          "precioVenta": 2100000,
+          "existencia": 10
+        },
+        "cantidad": 1
       }
     ],
     "prefijoFactura": "001-001-"
