@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
 });
 
 export default function Header({ title, showMenu, showActionButton, actionButtonIcon, onPressActionButton, children }) {
-  const [menuOpen, setMenuOpen] = useState(true);
-  const menuAnimation = useRef(new Animated.Value(1)).current;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuAnimation = useRef(new Animated.Value(0)).current;
 
   const menuFadeIn = () => {
     setMenuOpen(true);
