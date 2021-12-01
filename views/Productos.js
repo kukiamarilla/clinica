@@ -32,7 +32,7 @@ export default function Productos({ navigation }) {
     productoService.list().then((productos) => {
       setProductos(productos);
     });
-  })
+  }, [])
   return (
     <SafeAreaView style={styles.statusBar}>
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />

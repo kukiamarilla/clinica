@@ -32,7 +32,7 @@ export default function Ventas({ navigation }) {
     ventaService.list().then((ventas) => {
       setVentas(ventas);
     });
-  })
+  }, [])
   return (
     <SafeAreaView style={styles.statusBar}>
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
@@ -40,7 +40,7 @@ export default function Ventas({ navigation }) {
         <Header title="Ventas" showMenu showActionButton actionButtonIcon={Plus}>
         </Header>
         <ScrollView style={styles.body}>
-          {ventas.map((venta) => (<Venta venta={venta} key={venta.id}/>))}
+          {ventas.map((venta, idx) => (<Venta venta={venta} key={idx}/>))}
         </ScrollView>
       </View>
     </SafeAreaView>

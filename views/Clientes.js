@@ -33,7 +33,7 @@ export default function Clientes({ navigation }) {
     clienteService.list().then((clientes) => {
       setClientes(clientes);
     });
-  })
+  }, [])
   return (
     <SafeAreaView style={styles.statusBar}>
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
@@ -41,7 +41,7 @@ export default function Clientes({ navigation }) {
         <Header title="Clientes" showMenu showActionButton actionButtonIcon={Plus}>
         </Header>
         <ScrollView style={styles.body}>
-          {clientes.map((cliente) => (<Cliente cliente={cliente} key={producto.id}/>))}
+          {clientes.map((cliente) => (<Cliente cliente={cliente} key={cliente.id}/>))}
         </ScrollView>
       </View>
     </SafeAreaView>
