@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useCallback } from "react";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -28,11 +28,11 @@ const styles = StyleSheet.create({
 export default function Productos({ navigation }) {
   const [productos, setProductos] = useState([]);
 
-  useFocusEffect(() => {
+  useFocusEffect(useCallback(() => {
     productoService.list().then((productos) => {
       setProductos(productos);
     });
-  })
+  }, []));
   const deleteProducto = (producto) => {
     productoService.delete(producto).then(producto => {
       setProductos(productos);

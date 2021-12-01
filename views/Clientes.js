@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useCallback } from "react";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -28,11 +28,11 @@ const styles = StyleSheet.create({
 export default function Clientes({ navigation }) {
   const [clientes, setClientes] = useState([]);
 
-  useFocusEffect(() => {
+  useFocusEffect(useCallback(() => {
     clienteService.list().then((clientes) => {
       setClientes(clientes);
     });
-  })
+  }, []))
 
   const deleteCliente = (cliente) => {
     clienteService.delete(cliente).then(cliente => {

@@ -109,7 +109,6 @@ export default function CustomDatePicker({text, style, onSelect}) {
       }
       { Platform.OS == "ios" && <Modal
         presentationStyle="overFullScreen"
-        transparent
         visible={show}
         style={{
           flexDirection: "column",
@@ -123,7 +122,7 @@ export default function CustomDatePicker({text, style, onSelect}) {
           bottom: 40,
           width: "100%",
           backgroundColor: Colors.WHITE,
-          padding: 24
+          padding: 24,
         }}>
           <DateTimePicker
             testID="dateTimePicker"
