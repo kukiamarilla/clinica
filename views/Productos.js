@@ -10,6 +10,7 @@ import Header from "../components/ui/Header";
 import productoService from "../services/productoService";
 import Producto from "../components/Productos";
 import { ScrollView } from "react-native-gesture-handler";
+import { useFocusEffect } from "@react-navigation/native";
 
 const styles = StyleSheet.create({
   statusBar: {
@@ -28,11 +29,11 @@ const styles = StyleSheet.create({
 export default function Productos({ navigation }) {
   const [productos, setProductos] = useState([]);
 
-  useEffect(() => {
+  useFocusEffectEffect(() => {
     productoService.list().then((productos) => {
       setProductos(productos);
     });
-  }, [])
+  })
   return (
     <SafeAreaView style={styles.statusBar}>
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />

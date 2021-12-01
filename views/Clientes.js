@@ -11,6 +11,7 @@ import clienteService from "../services/clienteService";
 import Cliente from "../components/Cliente";
 import { ScrollView } from "react-native-gesture-handler";
 import productoService from "../services/productoService";
+import { useFocusEffect } from "@react-navigation/native";
 
 const styles = StyleSheet.create({
   statusBar: {
@@ -29,16 +30,16 @@ const styles = StyleSheet.create({
 export default function Clientes({ navigation }) {
   const [clientes, setClientes] = useState([]);
 
-  useEffect(() => {
+  useFocusEffect(() => {
     clienteService.list().then((clientes) => {
       setClientes(clientes);
     });
-  }, [])
+  })
   return (
     <SafeAreaView style={styles.statusBar}>
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
       <View style={styles.page}>
-        <Header title="Clientes" showMenu showActionButton actionButtonIcon={Plus}>
+        <Header title="Clientes" showMenu showActionButton actionButtonIcon={Plus} onPressActionButton={() => navigation.navigate("Agregar Cliente")}>
         </Header>
         <ScrollView style={styles.body}>
           {clientes.map((cliente) => (<Cliente cliente={cliente} key={cliente.id}/>))}

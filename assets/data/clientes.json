@@ -20,19 +20,19 @@
   {
     "id": 4,
     "nombre": "Martin Aponte",
-    "documento": "9787512-8",
+    "ruc": "9787512-8",
     "email": "martin@mail.com"
   },
   {
     "id": 5,
     "nombre": "Nerea Ortiz",
-    "documento": "4123545-5",
+    "ruc": "4123545-5",
     "email": "nerea@mail.com"
   },
   {
     "id": 6,
     "nombre": "Kahani Twitch",
-    "documento": "4512312-4",
+    "ruc": "4512312-4",
     "email": "kahani@mail.com"
   }
 ]

@@ -10,6 +10,8 @@ import Header from "../components/ui/Header";
 import ventaService from "../services/ventaService";
 import { ScrollView } from "react-native-gesture-handler";
 import Venta from "../components/Venta";
+import { useFocusEffect } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const styles = StyleSheet.create({
   statusBar: {
@@ -28,11 +30,11 @@ const styles = StyleSheet.create({
 export default function Ventas({ navigation }) {
   const [ventas, setVentas] = useState([]);
 
-  useEffect(() => {
+  useFocusEffect(() => {
     ventaService.list().then((ventas) => {
       setVentas(ventas);
     });
-  }, [])
+  })
   return (
     <SafeAreaView style={styles.statusBar}>
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
