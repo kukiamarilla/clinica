@@ -60,7 +60,7 @@ export default function Venta({venta}) {
           <Text style={[styles.marginTop, styles.text]}>Cliente: {venta.cliente.nombre}</Text>
         </View>
         <View style={{flex:2, paddingHorizontal: 8}}>
-          <Text style={[styles.marginTop, styles.text]}>Total: {venta.total}</Text>
+          <Text style={[styles.text]}>Total: {venta.total}</Text>
         </View>
       </View>
       <View style={[styles.acciones]}>
