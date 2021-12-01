@@ -33,6 +33,11 @@ export default function Productos({ navigation }) {
       setProductos(productos);
     });
   })
+  const deleteProducto = (producto) => {
+    productoService.delete(producto).then(producto => {
+      setProductos(productos);
+    });
+  }
   return (
     <SafeAreaView style={styles.statusBar}>
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
@@ -40,7 +45,7 @@ export default function Productos({ navigation }) {
         <Header title="Productos" showMenu showActionButton actionButtonIcon={Plus} onPressActionButton={() => navigation.navigate("Agregar Producto")}>
         </Header>
         <ScrollView style={styles.body}>
-          {productos.map((producto) => (<Producto producto={producto} key={producto.id}/>))}
+          {productos.map((producto) => (<Producto producto={producto} key={producto.id} onDelete={() => deleteProducto(producto)} />))}
         </ScrollView>
       </View>
     </SafeAreaView>

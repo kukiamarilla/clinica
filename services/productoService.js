@@ -10,5 +10,12 @@ export default {
     producto.id = maxId + 1
     productos.push(producto)
     AsyncStorage.setItem("productos", JSON.stringify(productos))
+  },
+  async delete(producto) {
+    const productos = await this.list()
+    const index = productos.findIndex(p => p.id === producto.id)
+    productos.splice(index, 1)
+    AsyncStorage.setItem("productos", JSON.stringify(productos))
+    return productos
   }
 }
