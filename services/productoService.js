@@ -17,5 +17,12 @@ export default {
     productos.splice(index, 1)
     AsyncStorage.setItem("productos", JSON.stringify(productos))
     return productos
+  },
+  async update(producto) {
+    const productos = await this.list()
+    const index = productos.findIndex(p => p.id === producto.id)
+    productos[index] = producto
+    AsyncStorage.setItem("productos", JSON.stringify(productos))
+    return productos
   }
 }
