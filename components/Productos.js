@@ -32,7 +32,7 @@ export default function Producto({producto}) {
         <Text style={styles.text}>Nombre: {producto.nombre}</Text>
       </View>
       <View style={{flex:2, paddingHorizontal: 8}}>
-        <Text style={[styles.marginTop, styles.text]}>Precio: {producto.precioVenta}</Text>
+        <Text style={[styles.text]}>Precio: {producto.precioVenta}</Text>
         <Text style={[styles.marginTop, styles.text]}>Existencia: {producto.existencia}</Text>
       </View>
     </View>

@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";

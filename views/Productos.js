@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
 export default function Productos({ navigation }) {
   const [productos, setProductos] = useState([]);
 
-  useFocusEffectEffect(() => {
+  useFocusEffect(() => {
     productoService.list().then((productos) => {
       setProductos(productos);
     });
@@ -38,7 +37,7 @@ export default function Productos({ navigation }) {
     <SafeAreaView style={styles.statusBar}>
       <StatusBar backgroundColor={Colors.SECONDARY_COLOR} style="light" />
       <View style={styles.page}>
-        <Header title="Productos" showMenu showActionButton actionButtonIcon={Plus}>
+        <Header title="Productos" showMenu showActionButton actionButtonIcon={Plus} onPressActionButton={() => navigation.navigate("Agregar Producto")}>
         </Header>
         <ScrollView style={styles.body}>
           {productos.map((producto) => (<Producto producto={producto} key={producto.id}/>))}
